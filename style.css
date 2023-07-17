@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+}
+
+body {
+    background: #2f363e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    position: relative;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border-top-left-radius: 175px;
+    border-top-right-radius: 175px;
+    background: #2f363e;
+    box-shadow: 10px 50px 70px rgba(0, 0, 0, 0.75),
+        inset 5px 5px 10px rgba(0, 0, 0, 0.5),
+        inset 5px 5px 20px rgba(0, 0, 0, 0.2),
+        inset -5px -5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.clock {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: #2f363e;
+    box-shadow: 10px 50px 70px rgba(0, 0, 0, 0.25),
+        inset 5px 5px 10px rgba(0, 0, 0, 0.5),
+        inset 5px 5px 20px rgba(0, 0, 0, 0.2),
+        inset -5px -5px 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.clock::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    align-self: center;
+    border-radius: 50%;
+    border: 2px solid seashell;
+    z-index: 1000000000;
+}
+
+.clock span {
+    position: absolute;
+    color: #fff;
+    inset: 20px;
+    text-align: center;
+    transform: rotate(calc(30deg * var(--i)));
+}
+
+.clock span b {
+    font-size: 1.3rem;
+    opacity: 0.25;
+    font-weight: 600;
+    display: inline-block;
+    transform: rotate(calc(-30deg * var(--i)));
+
+}
+
+.circle {
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    border-radius: 100%;
+    border: 2px solid rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 10;
+}
+
+.circle-2 {
+    width: 190px;
+    height: 190px;
+    z-index: 9;
+}
+
+.circle-3 {
+    width: 150px;
+    height: 150px;
+    z-index: 9;
+}
+
+.circle i {
+    position: absolute;
+    width: 5px;
+    height: 50%;
+    bottom: 51%;
+    background: var(--clr);
+    opacity: 0.75;
+    transform-origin: bottom;
+    transform: scaleY(0.55);
+    border-radius: 15px;
+}
+
+.circle-1 i {
+    width: 2px;
+}
+
+.circle-2 i {
+    width: 6px;
+
+}
+
+.circle::before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    box-shadow: 0px 0px 20px var(--clr);
+    background: var(--clr);
+    position: absolute;
+    top: -8.5px;
+    border-radius: 50%;
+    z-index: 10;
+
+}
+
+/* Digital clock  */
+.time {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 40px;
+    box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.2),
+        inset 5px 5px 20px rgba(255, 255, 255, 0.2),
+        inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+}
+
+.time div {
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    min-width: 50px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--clr);
+}
+
+#hour::after,
+#munits::after {
+    content: ':';
+    margin-left: 10px;
+}
+
+#munits::after {
+    animation: animated 1s ease infinite;
+}
+
+#ampm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    color: #fff;
+}
+
+@keyframes animated {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
